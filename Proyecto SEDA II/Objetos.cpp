@@ -412,3 +412,12 @@ void cUsuarios::cargar(fstream& inUsuario) {
 		usuarios.push_back(aux);
 	}
 }
+
+int cUsuarios::buscarUsuario(int id) {
+	for (int i = 0; i < usuarios.size(); i++) {
+		if (usuarios[i].ID == id) {
+			return i;
+		}
+	}
+	return -1;
+}

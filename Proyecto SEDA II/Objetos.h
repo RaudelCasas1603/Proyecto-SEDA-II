@@ -116,6 +116,7 @@ public:
 	void login(cCiudades& ciud);
 	void cargar(fstream& outUsuario);
 	void salvar(fstream& inUsuario);
+	int buscarUsuario(int id);
 };
 
 
