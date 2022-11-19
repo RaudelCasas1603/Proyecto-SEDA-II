@@ -1,4 +1,7 @@
 #include "Objetos.h"
+#include "Grafo.h"
+#include "grafoC.h"
+#include "Objetos.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -16,6 +19,8 @@ int main()
     cCiudades grafo;
     cCaminos camino;
     cUsuarios usuario;
+
+    cLista lista;
     //inCiudad.open("Ciudades.txt", ios_base::in);
     //grafo.cargar(inCiudad);
     //inCiudad.close();
@@ -27,13 +32,17 @@ int main()
     //inCamino.open("Caminos.txt", ios_base::in);
     //camino.cargar(inCamino);
     //inCamino.close();
-    //camino.read();
-    
-    inUsuario.open("usuarios.txt", ios_base::in);
-    usuario.cargar(inUsuario);
-    inUsuario.close();
-    usuario.read();
+    ////camino.read();
+    //
+    //inUsuario.open("usuarios.txt", ios_base::in);
+    //usuario.cargar(inUsuario);
+    //inUsuario.close();
+    //usuario.read();
 
-    cout << "Hola Mundo";
+    //cout << "Hola Mundo";
  
+    lista.insertar_lista_invertida(4, "GDL", 3, "Zapopan");
+    lista.insertar_lista_invertida(4, "GDL", 3, "Tonala");
+
+    lista.imprime();
 }

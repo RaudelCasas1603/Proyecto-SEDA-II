@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="grafo.cpp" />
+    <ClCompile Include="grafoC.cpp" />
     <ClCompile Include="Objetos.cpp" />
     <ClCompile Include="Proyecto SEDA II.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Grafo.h" />
+    <ClInclude Include="grafoC.h" />
     <ClInclude Include="Objetos.h" />
     <ClInclude Include="padre.h" />
   </ItemGroup>
