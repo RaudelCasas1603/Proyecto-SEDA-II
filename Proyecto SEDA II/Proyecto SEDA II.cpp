@@ -33,5 +33,7 @@ int main()
     usuario.cargar(inUsuario);
     inUsuario.close();
     usuario.read();
+
+    cout << "Hola Mundo";
  
 }
