@@ -19,14 +19,14 @@ void CNodo::InsertarAdelante(float fdata, string nombre_) {
     pNuevo->calificacion = fdata;
 }
 
-void cLista::insertarinicio(float fdata, string nombre_, float fdata2, string nombre2) {
+void cLista::insertarinicio(float fdata, string nombre_, float fdata2, string nombre2, float distancia) {
 
     inicio.InsertarAdelante(fdata,nombre_);
 
 }
-void cLista::insertarfinal(float fdata, string nombre_, float fdata2, string nombre2) {
+void cLista::insertarfinal(float fdata, string nombre_, float fdata2, string nombre2, float distancia) {
     final.pAnterior->InsertarAdelante(fdata,nombre_);
-    final.pAnterior->dato.insertarfinal(nombre2,fdata2);
+    final.pAnterior->dato.insertarfinal(nombre2,fdata2,distancia);
 }
 
 
@@ -60,7 +60,7 @@ void cLista::imprime() {
     else {
         while (p != &final)
         {
-            cout << p->identificador << "-> " << p->calificacion << ":" << endl;
+            cout << p->identificador << " -> " << p->calificacion << ":" << endl;
             p->dato.imprime();
             cout << endl;
             p = p->pSiguiente;
@@ -70,19 +70,19 @@ void cLista::imprime() {
 }
 
 
-void  cLista::insertar_lista_invertida(float fdata, string nombre_, float fdata2, string nombre2) {
+void  cLista::insertar_lista_invertida(float fdata, string nombre_, float fdata2, string nombre2, float distancia) {
     CNodo* pActual = &inicio;
     bool flag = false;
     while (pActual != &final) {
         if (pActual->identificador == nombre_) {
-            pActual->dato.insertarfinal(nombre2,fdata2);
+            pActual->dato.insertarfinal(nombre2,fdata2,distancia);
             flag = true;
         }
         pActual = pActual->pSiguiente;
     }
 
     if (flag == false) {
-        this->insertarfinal(fdata, nombre_,fdata2,nombre2);
+        this->insertarfinal(fdata, nombre_,fdata2,nombre2,distancia);
     }
 }
 

@@ -27,14 +27,14 @@ private:
 
 
 public:
-    void insertarinicio(float fdata, string nombre_, float fdata2, string nombre2);
-    void insertarfinal(float fdata, string nombre_, float fdata2, string nombre2);
+    void insertarinicio(float fdata, string nombre_, float fdata2, string nombre2, float distancia);
+    void insertarfinal(float fdata, string nombre_, float fdata2, string nombre2, float distancia);
     int size();
     cLista();
     ~cLista();
     void imprime();
 
-    void insertar_lista_invertida(float fdata, string nombre_, float fdata2, string nombre2);
+    void insertar_lista_invertida(float fdata, string nombre_, float fdata2, string nombre2, float distancia);
 };
 
 

@@ -1,8 +1,9 @@
 #include "Objetos.h"
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
-
+cLista mapa;
 int contadorCiudad = 1;
 int contadorCamino = 1;
 int contadorUsuario = 1;
@@ -137,6 +138,7 @@ void cCamino::salvar(fstream& outCamino) {
 	outCamino << this->ID << endl;
 	outCamino << this->origen << endl;
 	outCamino << this->destino << endl;
+	outCamino << this->distancia << endl;
 	outCamino << this->tiempo << endl;
 	outCamino << this->costo << endl;
 	outCamino << this->seguridad << endl;
@@ -148,12 +150,13 @@ void cCamino::cargar(fstream& inCamino) {
 	inCamino >> this->ID;
 	inCamino >> this->origen;
 	inCamino >> this->destino;
+	inCamino>> this->distancia;
 	inCamino >> this->tiempo;
 	inCamino >> this->costo;
 	inCamino >> this->seguridad;
 	inCamino >> this->atractivo;
 	inCamino >> this->facilidad;
-	contadorCamino = this->ID;
+	contadorCamino = this->ID+1;
 }
 void cUsuario::create() {
 	string nombre_;
@@ -194,6 +197,7 @@ void cUsuario::create() {
 
 void cUsuario::read() {
 	cout << "Nombre: " << this->Nombre << endl;
+	cout << "ID: " << this->ID << endl;
 	cout << "Presupuesto: " << this->presupuesto << endl;
 	cout << "Interes Ecoturismo: " << this->ecoturismo << endl;
 	cout << "Interes Gastronomia:" << this->gastronomia << endl;
@@ -421,3 +425,46 @@ int cUsuarios::buscarUsuario(int id) {
 	}
 	return -1;
 }
+
+void cUsuarios::login(cCiudades& ciudades_, cCaminos& caminos_) {
+	int id,pos,j;
+	float promedio, promedio2=0;
+	float total1, total2 = 0;
+	float resultado1 = 0, resultado2 = 0;
+	cout << "Ingrese el ID del usuario:";
+	cin >> id;
+	pos = buscarUsuario(id);
+	for (int i = 0; i < ciudades_.ciudades.size(); i++) {
+		promedio = 0;
+		total1 = 0;
+		resultado1 = 0;
+		promedio = (usuarios[pos].ecoturismo + ciudades_.ciudades[i].ecoturismo) / 2;
+		total1 += promedio;
+		promedio = (usuarios[pos].gastronomia + ciudades_.ciudades[i].gastronomia) / 2;
+		total1 += promedio;
+		promedio = (usuarios[pos].historia + ciudades_.ciudades[i].historia) / 2;
+		total1 += promedio;
+		promedio = (usuarios[pos].seguridad + ciudades_.ciudades[i].seguridad) / 2;
+		total1 += promedio;
+		resultado1 = total1 / 4;
+		for ( j = 0; j < caminos_.caminos.size(); j++) {
+			promedio2 = 0;
+			total2 = 0;
+			resultado2 = 0;
+			if (caminos_.caminos[j].origen == ciudades_.ciudades[i].nombre) {
+				promedio2 = (caminos_.caminos[j].costo + usuarios[pos].costo) / 2;
+				total2 = total2 + promedio2;
+				promedio2 = (caminos_.caminos[j].seguridad+ usuarios[pos].cSeguridad) / 2;
+				total2 = total2 + promedio2;
+				promedio2 = (caminos_.caminos[j].facilidad + usuarios[pos].manejo) / 2;
+				total2 = total2 + promedio2;
+				resultado2 = total2 / 3;
+				mapa.insertar_lista_invertida(resultado1, ciudades_.ciudades[i].nombre, resultado2, caminos_.caminos[j].destino, caminos_.caminos[j].distancia);
+			}
+		}
+	}
+
+	mapa.imprime();
+
+}
+

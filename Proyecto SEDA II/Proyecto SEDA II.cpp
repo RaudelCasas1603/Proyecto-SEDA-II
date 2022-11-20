@@ -2,6 +2,7 @@
 #include "Grafo.h"
 #include "grafoC.h"
 #include "Objetos.h"
+#include "padre.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -16,33 +17,25 @@ fstream inUsuario;
 using namespace std;
 int main()
 {
-    cCiudades grafo;
+    cCiudades ciudad_;
     cCaminos camino;
     cUsuarios usuario;
 
-    cLista lista;
-    //inCiudad.open("Ciudades.txt", ios_base::in);
-    //grafo.cargar(inCiudad);
-    //inCiudad.close();
-    ////grafo.create();
-    //grafo.read();
-    ////outCiudad.open("Ciudades.txt", ios_base::out);
-    ////grafo.salvar(outCiudad);
 
-    //inCamino.open("Caminos.txt", ios_base::in);
-    //camino.cargar(inCamino);
-    //inCamino.close();
-    ////camino.read();
-    //
-    //inUsuario.open("usuarios.txt", ios_base::in);
-    //usuario.cargar(inUsuario);
-    //inUsuario.close();
-    //usuario.read();
+    inCiudad.open("Ciudades.txt", ios_base::in);
+    ciudad_.cargar(inCiudad);
+    inCiudad.close();
+    inCamino.open("Caminos.txt", ios_base::in);
+    camino.cargar(inCamino);
+    //camino.read();
+    inCamino.close();
 
-    //cout << "Hola Mundo";
+    inUsuario.open("usuarios.txt", ios_base::in);
+    usuario.cargar(inUsuario);
+  /*  usuario.read();*/
+    inUsuario.close();
  
-    lista.insertar_lista_invertida(4, "GDL", 3, "Zapopan");
-    lista.insertar_lista_invertida(4, "GDL", 3, "Tonala");
+    usuario.login(ciudad_, camino);
 
-    lista.imprime();
+   
 }

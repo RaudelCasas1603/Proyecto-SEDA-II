@@ -12,9 +12,10 @@ public:
     CNodo_* pAnterior;
     string nombre;
     float calificacion;
+    float distancia_;
     friend class cLista_;
     friend class cLista;
-    void InsertarAdelante(string, float);
+    void InsertarAdelante(string, float, float);
 
 };
 
@@ -24,8 +25,8 @@ private:
 public:
     friend class CNodo_;
     friend class cLista;
-    void insertarinicio(string nombre_, float calificacion);
-    void insertarfinal(string nombre_, float calificacion);
+    void insertarinicio(string nombre_, float calificacion, float distancia);
+    void insertarfinal(string nombre_, float calificacion, float distancia);
     int size();
     cLista_();
     ~cLista_();

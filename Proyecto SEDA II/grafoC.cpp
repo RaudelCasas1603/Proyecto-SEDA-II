@@ -4,7 +4,7 @@
 #include "grafoC.h"
 using namespace std;
 
-void CNodo_::InsertarAdelante(string nombre_, float fdata) {
+void CNodo_::InsertarAdelante(string nombre_, float fdata, float distancia) {
 
     CNodo_* pNuevo = new(CNodo_);
 
@@ -14,17 +14,16 @@ void CNodo_::InsertarAdelante(string nombre_, float fdata) {
     this->pSiguiente->pSiguiente->pAnterior = pNuevo;
     pNuevo->nombre = nombre_;
     pNuevo->calificacion = fdata;
-
-
+    pNuevo->distancia_ = distancia;
 }
 
-void cLista_::insertarinicio(string nombre_, float calificacion) {
+void cLista_::insertarinicio(string nombre_, float calificacion, float distancia) {
 
-    inicio.InsertarAdelante(nombre_, calificacion);
+    inicio.InsertarAdelante(nombre_, calificacion, distancia);
 
 }
-void cLista_::insertarfinal(string nombre_, float calificacion) {
-    final.pAnterior->InsertarAdelante(nombre_, calificacion);
+void cLista_::insertarfinal(string nombre_, float calificacion, float distancia) {
+    final.pAnterior->InsertarAdelante(nombre_, calificacion,distancia);
 }
 
 int cLista_::size() {
@@ -59,7 +58,7 @@ void cLista_::imprime() {
         while (p != &final)
         {
             cout << contador << ": ";
-            cout << p->nombre << "->" << p->calificacion << endl;
+            cout << p->nombre << " -> " << p->calificacion <<" -> "<<p->distancia_ << endl;
             p = p->pSiguiente;
             contador++;
 

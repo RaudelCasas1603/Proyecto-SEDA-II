@@ -3,6 +3,7 @@
 #define OBJETOS_H
 
 #include "Grafo.h"
+#include "grafoC.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -67,7 +68,6 @@ private:
 	float cSeguridad;
 	float manejo;
 public:
-	
 	friend class cUsuarios;
 	void create();
 	void read();
@@ -75,6 +75,8 @@ public:
 	string delete_();
 	void cargar(fstream& outUsuario);
 	void salvar(fstream& inUsuario);
+
+
 };
 
 class cCiudades {
@@ -113,10 +115,11 @@ public:
 	void read();
 	void update();
 	void delete_();
-	void login(cCiudades& ciud);
+	void login(cCiudades& ciudades_, cCaminos& caminos_);
 	void cargar(fstream& outUsuario);
 	void salvar(fstream& inUsuario);
 	int buscarUsuario(int id);
+
 };
 
 
