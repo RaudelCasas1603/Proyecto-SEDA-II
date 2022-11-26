@@ -3,6 +3,7 @@
 #include "grafoC.h"
 #include "Objetos.h"
 #include "padre.h"
+#include "HashTag.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -20,22 +21,6 @@ int main()
     cCiudades ciudad_;
     cCaminos camino;
     cUsuarios usuario;
+    hashTable h;
 
-
-    inCiudad.open("Ciudades.txt", ios_base::in);
-    ciudad_.cargar(inCiudad);
-    inCiudad.close();
-    inCamino.open("Caminos.txt", ios_base::in);
-    camino.cargar(inCamino);
-    //camino.read();
-    inCamino.close();
-
-    inUsuario.open("usuarios.txt", ios_base::in);
-    usuario.cargar(inUsuario);
-  /*  usuario.read();*/
-    inUsuario.close();
- 
-    usuario.login(ciudad_, camino);
-
-   
 }
