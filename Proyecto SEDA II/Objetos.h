@@ -115,7 +115,7 @@ public:
 	void read();
 	void update();
 	void delete_();
-	void login(cCiudades& ciudades_, cCaminos& caminos_);
+	cLista login(cCiudades& ciudades_, cCaminos& caminos_);
 	void cargar(fstream& outUsuario);
 	void salvar(fstream& inUsuario);
 	int buscarUsuario(int id);

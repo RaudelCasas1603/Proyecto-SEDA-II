@@ -426,7 +426,7 @@ int cUsuarios::buscarUsuario(int id) {
 	return -1;
 }
 
-void cUsuarios::login(cCiudades& ciudades_, cCaminos& caminos_) {
+cLista cUsuarios::login(cCiudades& ciudades_, cCaminos& caminos_) {
 	int id,pos,j;
 	float promedio, promedio2=0;
 	float total1, total2 = 0;
@@ -465,6 +465,8 @@ void cUsuarios::login(cCiudades& ciudades_, cCaminos& caminos_) {
 	}
 
 	mapa.imprime();
+
+	return mapa;
 
 }
 
