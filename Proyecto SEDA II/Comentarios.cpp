@@ -1,31 +1,38 @@
-#include "HashTag.h"
 #include <iostream>
 #include <string>
 #include <fstream>
-
+#include "Comentarios.h"
 using namespace std;
 
 void hashTable::hash() {
 	string aux, aux2;
-	int i = 0, posicion;
+	char letra;
+	int posicion=0;
 	bool flag = false;
-	cout << "Ingrese Comentario: ";
+	int i = 0;
+	getchar();
+	cout << "Ingrese comentario: ";
 	getline(cin, aux);
 
-	while (aux[i]!='#') {	//Encotramos el HashTag 
+	for (i = 0; i < aux.size(); i++) {
+		if (aux[i] == '#') {
+			break;
+		}
+	}
+
+	while (aux[i] != ' ') {
+		letra = aux[i];
+		aux2.push_back(letra);
 		i++;
 	}
 
-	while (aux[i] != ' ') {	//Leemos el Hash 
-		aux2.push_back(aux[i]);
-		i++;
-	}
+	cout << aux2;
+	//cout << aux2;
 
 	posicion = aux2.size() % 10;
-
 	tabla[posicion].insert(aux);
-	
 
+	
 }
 
 void hashTable::imprimir() {

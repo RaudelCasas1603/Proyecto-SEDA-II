@@ -35,6 +35,7 @@ public:
     void imprime();
 
     void insertar_lista_invertida(float fdata, string nombre_, float fdata2, string nombre2, float distancia);
+    void buscarDestino();
 };
 
 

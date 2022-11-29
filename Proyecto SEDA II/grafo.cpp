@@ -86,6 +86,23 @@ void  cLista::insertar_lista_invertida(float fdata, string nombre_, float fdata2
     }
 }
 
+void cLista::buscarDestino() {
+    CNodo* pActual = &inicio;
+    float min=0;
+    CNodo* mejor=nullptr;
+
+    while (pActual != &final) {
+        if (pActual->calificacion > min) {
+            mejor = pActual;        
+        }
+        pActual = pActual->pSiguiente;
+    }
+
+    cout << "Su destino ideal es: ";
+    cout << mejor->identificador << endl;
+    cout << mejor->calificacion<<endl;
+}
+
 
 ////////////////
 

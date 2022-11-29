@@ -1,7 +1,8 @@
 #pragma once
-#ifndef HASHTAG_H
-#define HASTAG_H
+#ifndef COMENTARIOS_H
+#define COMENTARIOS_H
 
+#include <iostream>
 #include <string>
 #include <fstream>
 #include <set>
@@ -23,4 +24,4 @@ public:
 };
 
 
-#endif // !HASHTAG_H
+#endif // !COMENTARIOS_H

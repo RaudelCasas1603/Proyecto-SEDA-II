@@ -115,11 +115,12 @@ public:
 	void read();
 	void update();
 	void delete_();
-	cLista login(cCiudades& ciudades_, cCaminos& caminos_);
+	int login(cCiudades& ciudades_, cCaminos& caminos_);
 	void cargar(fstream& outUsuario);
 	void salvar(fstream& inUsuario);
 	int buscarUsuario(int id);
-
+	void imprimir_mapa();
+	void buscar_destinoIdeal();
 };
 
 

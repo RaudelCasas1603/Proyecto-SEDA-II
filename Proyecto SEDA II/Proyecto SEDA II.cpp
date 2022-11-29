@@ -3,7 +3,7 @@
 #include "grafoC.h"
 #include "Objetos.h"
 #include "padre.h"
-#include "HashTag.h"
+#include "Comentarios.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -105,8 +105,10 @@ void admin() {
 }
 
 void user() {
-	int opc;
+	int opc,posicion;
+	string aux;
 	cLista mapa;
+
 	do
 	{
 
@@ -118,17 +120,34 @@ void user() {
 		{
 		case 1:
 			system("cls");
-			mapa = usuario.login(ciudad_, camino);
+			posicion = usuario.login(ciudad_, camino);
 			system("pause");
 			system("cls");
 			break;
 		case 2:
+			system("cls");
+			usuario.buscar_destinoIdeal();
+			system("pause");
+			system("cls");
 			break;
 		case 3:
 			break;
 		case 4:
 			break;
-
+		case 5:
+			break;
+		case 6:
+			system("cls");
+			hashTag.hash();
+			system("pause");
+			system("cls");
+			break;
+		case 7:
+			system("cls");
+			hashTag.imprimir();
+			system("pause");
+			system("cls");
+			break;
 		default:
 			break;
 		}
@@ -139,6 +158,7 @@ void user() {
 int main()
 {
 	int opc;
+
 	do {
 		cout << "\t\tADMINISTRADOR DE VIAJES" << endl;
 		cout << "Ingrese la opcion que desee: ";

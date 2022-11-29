@@ -14,6 +14,7 @@ void cCiudad::create() {
 	string nombre_;
 	float ecoturismo_, gastronomia_, historia_, seguridad_, costo_;
 
+	getchar();
 	cout << "Ingrese el nombre de la ciudad: ";
 	fflush(stdin);
 	getline(cin, nombre_, '\n');
@@ -426,7 +427,7 @@ int cUsuarios::buscarUsuario(int id) {
 	return -1;
 }
 
-cLista cUsuarios::login(cCiudades& ciudades_, cCaminos& caminos_) {
+int cUsuarios::login(cCiudades& ciudades_, cCaminos& caminos_) {
 	int id,pos,j;
 	float promedio, promedio2=0;
 	float total1, total2 = 0;
@@ -466,7 +467,14 @@ cLista cUsuarios::login(cCiudades& ciudades_, cCaminos& caminos_) {
 
 	mapa.imprime();
 
-	return mapa;
+	return pos;
 
 }
 
+void cUsuarios::imprimir_mapa() {
+	mapa.imprime();
+}
+
+void cUsuarios::buscar_destinoIdeal() {
+	mapa.buscarDestino();
+}
